@@ -59,27 +59,31 @@
     </div>
   </div>
 </nav>
-<div class="container">    
-  <div class="row">
+<div class="container">  
+  <% cigarData.forEach(data =>{%>
+
+  
+  <!-- <div class="row"> -->
     <div class="col-sm-4">
       <div class="panel panel-danger">
-        <div class="panel-heading">MARLBORO RED</div>
-        <div class="panel-body"><img src="https://i.imgur.com/LRb7VhK.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Rp.30.000</div>
+        <div class="panel-heading"><%= data.name %></div> 
+        <div class="panel-body"><img src="<%= data.image %>" class="img-responsive" style="width:100%" alt="Image"></div>
+        <div class="panel-footer"><%= data.price %></div> <a href="" class="btn btn-primary">Order</a>
+        
       </div>
     </div>
-    <div class="col-sm-4"> 
+    <!-- <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">FORTE</div>
+        <div class="panel-heading"><%= data.name %></div>
         <div class="panel-body"><img src="https://i.imgur.com/GA9gWaH.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Rp.15.000</div>
+        <div class="panel-footer"><%= data.price %></div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">CLASS MILD</div>
+        <div class="panel-heading"><%= data.name %></div>
         <div class="panel-body"><img src="https://i.imgur.com/ghSpBre.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Rp.18.000</div>
+        <div class="panel-footer"><%= data.price %></div>
       </div>
     </div>
   </div>
@@ -88,26 +92,28 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="panel panel-danger">
-        <div class="panel-heading">SAMPOERNA MILD</div>
+        <div class="panel-heading"><%= data.name %></div>
         <div class="panel-body"><img src="https://i.imgur.com/fg8ckB4.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Rp.24.000</div>
+        <div class="panel-footer"><%= data.price %></div>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">MARLBORO ICEBLAST</div>
+        <div class="panel-heading"><%= data.name %></div>
         <div class="panel-body"><img src="https://i.imgur.com/10v45sq.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Rp.30.000</div>
+        <div class="panel-footer"><%= data.price %></div>
+        <a href="" class="btn btn-primary">Order</a>
       </div>
     </div>
     <div class="col-sm-4"> 
       <div class="panel panel-danger">
-        <div class="panel-heading">CAMEL</div>
+        <div class="panel-heading"><%= data.name %></div>
         <div class="panel-body"><img src="https://i.imgur.com/uP4N8Vl.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer">Rp.20.500</div>
+        <div class="panel-footer"><%= data.price %></div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <%})%>  
 </div><br><br>
 <footer class="container-fluid text-center">
   <p>Cigar Store Copyright 2018</p>  
