@@ -55,7 +55,7 @@ var sessionChecker3 = ((req, res, next) => {
 app.use('/register', register)
 
 app.use('/login', login)
-app.use('/admin', sessionChecker1,sessionChecker3, admin)
+app.use('/admin', sessionChecker1, sessionChecker3,admin)
 app.use('/dashboard', sessionChecker1, sessionChecker2, dashboard)
 app.use('/logout', sessionChecker1, logout)
 

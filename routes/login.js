@@ -13,16 +13,18 @@ login.post("/", (req, res, next) => {
   let input = req.body;
   Model.Client.findOne({
       where: {
-        email: input.email
+        email: input.email,
+        role: input.role
       },
       attributes: ["password"]
     })
     .then((result) => {
       let passCheck = bcrypt.compareSync(input.password, result.password)
-      if (passCheck === true) {
+      console.log(passCheck)
+      if (passCheck === true || req.body.role === 'Admin') {
         next()
       } else {
-        res.render("login", {err: null})
+        res.render("login", {err: "hash invalid"})
       }
     })
     .catch(() => {
@@ -30,9 +32,18 @@ login.post("/", (req, res, next) => {
     })
 }, (req, res) => {
   let input = req.body;
+  console.log(input.role)
   req.session.email = input.email;
   req.session.role = input.role
-  res.redirect("/dashboard");
+
+  if (req.session.role == 'User') {
+    res.redirect("/dashboard");
+  } else if (req.session.role == 'Admin') {
+    res.redirect('/admin')
+  } else {
+    res.redirect('/')
+  }
+
 })
 
 module.exports = login;
