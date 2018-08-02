@@ -27,11 +27,7 @@
   </style>
 </head>
 <body>
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Cigar Store</h1>      
-    <p></p>
-  </div>
+    <%- include('./partials/ciggarStore') %>
 </div>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -53,7 +49,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
