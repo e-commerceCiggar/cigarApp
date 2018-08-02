@@ -26,29 +26,38 @@ app.use(session({
 app.use('/', index)
 
 var sessionChecker1 = ((req, res, next) => {
-    if(req.session.role == 'User') {
-        console.log(`masuk 1`)
-       next()
-    } else {
-       res.redirect('/')
-    }
-})
-
-var sessionChecker2 = ((req, res, next) => {
     if (req.session.email) {
-        console.log(`masuk 2`)
+        console.log(`masuk 1`)
         next()
     } else {
         res.redirect('/')
     }
 })
 
+var sessionChecker2 = ((req, res, next) => {
+    if(req.session.role == 'User') {
+        console.log(`masuk 2`)
+       next()
+    } else {
+       res.redirect('/')
+    }
+})
+
+var sessionChecker3 = ((req, res, next) => {
+    if(req.session.role == 'Admin') {
+        console.log(`masuk 3`)
+       next()
+    } else {
+       res.redirect('/')
+    }
+})
+
 app.use('/register', register)
 
 app.use('/login', login)
-app.use('/admin', admin)
-app.use('/dashboard', sessionChecker2, sessionChecker1, dashboard)
-app.use('/logout', sessionChecker2, logout)
+app.use('/admin', sessionChecker1,sessionChecker3, admin)
+app.use('/dashboard', sessionChecker1, sessionChecker2, dashboard)
+app.use('/logout', sessionChecker1, logout)
 
 
 app.listen(3000, console.log('connect to port:3000'))
