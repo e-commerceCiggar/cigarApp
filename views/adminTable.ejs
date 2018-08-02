@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teacher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="text-center" >STOCK CIGAR</h1>
+    <h2 class="text-center">
+            <a href="/admin/adminTable/addStock" class="container">ADD STOCKS DATA'S</a>
+    </h2>
+    <br><br>
+    
+    <div class="container" > 
+    <table  class="table">
+            <thead>
+                 <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>price</th>
+                    <th>stock</th>
+                    <th>action</th>
+                </tr>
+             </thead>
+            <tbody>
+                <tr>
+                    <% dataCigar.forEach(data=>{%>
+                        <td><%= data.id %></td>
+                        <td><%= data.name %> </td>
+                        <td><%= data.price %> </td>
+                        <td><%= data.stock %></td>
+                        <td>
+                            <a href="/admin/adminTable/edit/<%= data.id %>">EDIT</a> | <a href="/admin/adminTable/delete/<%= data.id %>">DELETE</a>
+                        </td>
+                    
+                </tr>
+                <%})%>
+
+            </tbody>
+    </table>
+    <div>
+        <a href="/admin">BACK</a>
+    </div>
+</div>
+    
+</body>
+</html>
