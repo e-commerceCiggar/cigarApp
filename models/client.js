@@ -100,7 +100,7 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     password: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       validate: {
         notEmpty: {
           args: true,
@@ -111,8 +111,21 @@ module.exports = (sequelize, DataTypes) => {
           msg: `password is too short/long`
         }
       }
+    },
+    role: {
+      type: DataTypes.STRING,
     }
   }, {});
+
+  Client.beforeCreate((Client, options) => {
+    return bcrypt.hash(Client.password, saltRounds)
+    .then((passwordEncrypt) => {
+      Client.password = passwordEncrypt
+    })
+  })
+
+  //console.log(bcrypt.compareSync('12345', '$2b$10$wl/9OivM/XQbZyyhSMKsu.1a9LR5AQ65OKEAfbnfFYWuvKbUIFgty')) // true
+
   Client.associate = function(models) {
     // associations can be defined here
     Client.belongsToMany(models.Cigar,{through: models.Transaction})

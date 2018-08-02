@@ -12,38 +12,25 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-   return queryInterface.bulkInsert('Cigars', [
-     {
-      name: 'Marlboro',
-      price: 26000,
-      stock: 10
-     },
-     {
-      name: 'Forte',
-      price: 15000,
-      stock: 10
-     },
-     {
-      name: 'Sampoerna Mild',
-      price: 24000,
-      stock: 10
-     },
-     {
-      name: 'Class Mild',
-      price: 17000,
-      stock: 10
-     },
-     {
-      name: 'Marlboro iceBlast',
-      price: 30000,
-      stock: 5
-     }, 
-     {
-      name: 'Camel',
-      price: 200500,
-      stock: 5
-     }
-], {});
+   return queryInterface.bulkInsert('Clients', [{
+    firstName: 'Andre',
+    lastName: 'Sudi',
+    gender: 'Male',
+    age: 23,
+    email: 'y.andresudi@gmail.com',
+    phone: '081296269027',
+    password: '123456',
+    role: 'Admin'
+  }, {
+    firstName: 'Muhammad',
+    lastName: 'Riza',
+    gender: 'Male',
+    age: 30,
+    email: 'riza.riza69@gmail.com',
+    phone: '08119780702',
+    password: '123456',
+    role: 'Admin'
+  }], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -54,5 +41,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
+   return queryInterface.bulkDelete('Clients', null, {});
   }
 };

@@ -16,6 +16,7 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "morgan": "^1.9.0",
+    "nexmo": "^2.3.2",
     "pg": "^7.4.3",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.0.0"
