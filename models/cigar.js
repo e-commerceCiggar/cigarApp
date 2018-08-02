@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
   var Cigar = sequelize.define('Cigar', {
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER
+    stock: DataTypes.INTEGER,
+    image: DataTypes.TEXT
   }, {});
   Cigar.associate = function(models) {
     // associations can be defined here
