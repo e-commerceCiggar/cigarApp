@@ -62,5 +62,7 @@ router.get('/adminTable/delete/:id',function(req,res){
     })
 
 })
+//user --> ambil home user
+router.get('/')
  
 module.exports = router
