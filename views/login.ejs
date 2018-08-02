@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <%- include('./partials/ciggarStore') %>
+    <%- include("./partials/backToHome") %>
+  <form class="" action="/login" method="POST">
+
+  <label><b>Email</b></label>
+  <input type="email" name="email" placeholder="Enter Email">
+
+  <label><b>Password</b></label>
+  <input type="password" name="password" placeholder="Enter Password">
+    <select name="role">
+        <option value="">--Select Role--</option>
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+    </select> 
+  <button type="submit" name="button">Login</button>
+  </form>
+
+
+  <h2><%= err %></h2>
+</body>
+</html>
