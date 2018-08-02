@@ -5,7 +5,8 @@ const session = require('express-session')
 
 const index = require('./routes/index')
 const register = require('./routes/register')
-const login = require('./routes/login')
+const admin = require('./routes/admin.js')
+// const login = require('./routes/login')
 
 app.set('view engine', 'ejs')
 
@@ -20,6 +21,7 @@ app.use(session({
 
 app.use('/', index)
 app.use('/register', register)
+app.use('/admin', admin)
 // app.use('/login', login)
 
 app.listen(3000, console.log('connect to port:3000'))

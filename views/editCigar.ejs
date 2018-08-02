@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Stock</title>
+</head>
+<body>
+    <form action="/admin/adminTable/edit/<%= dataCigar.id %> %>" method="POST">
+        name:<br>
+        <input type="text" name="name">
+        <br>
+        Price:<br>
+        <input type="text" name="price" >
+        <br>
+        Stock:<br>
+        <input type="text" name="email">
+        <br><br>
+        <button>SUBMIT</button>
+      </form> 
+    <br>
+    <a href="/admin/adminTable">back</a>
+</body>
+</html>
