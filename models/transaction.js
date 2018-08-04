@@ -6,10 +6,11 @@ module.exports = (sequelize, DataTypes) => {
     quantity: DataTypes.INTEGER,
     timeLimit: DataTypes.INTEGER
   }, {});
+
   Transaction.associate = function(models) {
     // associations can be defined here
     Transaction.belongsTo(models.Cigar)
     Transaction.belongsTo(models.Client)
   };
   return Transaction;
-};
+}
