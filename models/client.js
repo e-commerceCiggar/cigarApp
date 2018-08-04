@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Sequelize = require('sequelize')
   const bcrypt = require('bcrypt')
   const Op = Sequelize.Op
-  const saltRounds = 10
+  const saltRounds = 8
   var Client = sequelize.define('Client', {
     firstName: {
       type: DataTypes.STRING,
@@ -124,7 +124,17 @@ module.exports = (sequelize, DataTypes) => {
     })
   })
 
-  //console.log(bcrypt.compareSync('12345', '$2b$10$wl/9OivM/XQbZyyhSMKsu.1a9LR5AQ65OKEAfbnfFYWuvKbUIFgty')) // true
+  Client.prototype.formatName = function() {
+    let str = ''
+    if (this.gender == 'Male') {
+      str += `Mr. ${this.firstName} ${this.lastName}`
+    } else if (this.gender == 'Female') {
+      str += `Mrs. ${this.firstName} ${this.lastName}`
+    } else {
+      str += `${this.firstName}`
+    }
+    return str
+  }
 
   Client.associate = function(models) {
     // associations can be defined here

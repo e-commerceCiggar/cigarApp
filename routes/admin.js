@@ -49,9 +49,6 @@ router.post('/adminTable/edit/:id', function(req,res){
     })
 })
 
-
-
-
 router.get('/adminTable/delete/:id',function(req,res){
     Cigar.destroy({
         where: {id:req.params.id}
@@ -62,7 +59,5 @@ router.get('/adminTable/delete/:id',function(req,res){
     })
 
 })
-//user --> ambil home user
-router.get('/')
  
 module.exports = router

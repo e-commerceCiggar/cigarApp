@@ -18,7 +18,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       timeLimit: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        dafaultValue: 1
       },
       createdAt: {
         allowNull: false,

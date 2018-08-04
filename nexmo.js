@@ -7,7 +7,7 @@ const nexmo = new Nexmo({
 
 const from = 'Nexmo';
 const to = '+628119780702';
-const text = 'test hacktiv yak';
+const text = 'anda harus melakukan pembayaran paling lambat h-1 dari transaction date';
 
 nexmo.message.sendSms(from, to, text, (error, response) => {
   if(error) {
@@ -19,3 +19,29 @@ nexmo.message.sendSms(from, to, text, (error, response) => {
     console.log(response);
   }
 });
+
+Transaction.hook('beforeCreate', (user, options) => {
+  const nodemailer = require('nodemailer')
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'hacktiv8andresudi@gmail.com',
+      pass: 'hacktiv8Super'
+    }
+  })
+
+  const mailOptions = {
+    from: '"cigar store" <hacktiv8andresudi@gmail.com>',
+    to: 'andresudi@gmail.com',
+    subject: 'receipt invoice',
+    text: `test`
+  }
+
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err)
+    console.log(err)
+    else
+    console.log(info)
+  })
+})

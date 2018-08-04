@@ -14,36 +14,41 @@ login.post("/", (req, res, next) => {
   Model.Client.findOne({
       where: {
         email: input.email,
-        role: input.role
+        role: input.role,
       },
-      attributes: ["password"]
     })
     .then((result) => {
       let passCheck = bcrypt.compareSync(input.password, result.password)
-      console.log(passCheck)
-      if (passCheck === true || req.body.role === 'Admin') {
+ 
+      if (passCheck === true) {
+        let input = req.body;
+
+        req.session.UserId = result.id
+        req.session.email = input.email;
+        req.session.role = input.role
+        req.session.firstName = result.firstName
+        req.session.lastName = result.lastName
+        req.session.phone = result.phone
+        req.session.createdAt = result.createdAt
+
         next()
       } else {
-        res.render("login", {err: "hash invalid"})
+        res.render("login", {err: null})
       }
     })
     .catch(() => {
         res.render("login", {err: "email/password is invalid"});
     })
 }, (req, res) => {
-  let input = req.body;
-  console.log(input.role)
-  req.session.email = input.email;
-  req.session.role = input.role
 
   if (req.session.role == 'User') {
     res.redirect("/dashboard");
   } else if (req.session.role == 'Admin') {
-    res.redirect('/admin')
+    res.redirect("/admin")
   } else {
     res.redirect('/')
   }
-
+  
 })
 
 module.exports = login;
